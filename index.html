@@ -19,9 +19,9 @@
 </script>
 <style>html.i18n-wait body { visibility: hidden; }</style>
 <title>Cristóbal Faúndez · Desarrollador Full Stack</title>
-<meta name="description" content="Portafolio de Cristóbal Faúndez, desarrollador full stack en la Región del Biobío, Chile. Arquitectura de software, bases de datos, APIs REST con .NET, Angular y Laravel, y análisis de datos con Power BI.">
+<meta name="description" content="Portafolio de Cristóbal Faúndez, Ingeniero de Ejecución en Informática (e) y desarrollador full stack en la Región del Biobío, Chile. Arquitectura de software, bases de datos, APIs REST con .NET, Angular y Laravel, y análisis de datos con Power BI.">
 <meta property="og:title" content="Cristóbal Faúndez · Desarrollador Full Stack">
-<meta property="og:description" content="Arquitectura de software, bases de datos, APIs REST, aplicaciones web y análisis de datos.">
+<meta property="og:description" content="Ingeniero de Ejecución en Informática (e) y desarrollador full stack: arquitectura de software, bases de datos, APIs REST, aplicaciones web y análisis de datos.">
 <meta name="theme-color" content="#09090b">
 <link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -40,7 +40,8 @@
  "name": "Cristóbal Faúndez Stuardo",
  "alternateName": "Cristóbal Faúndez",
  "jobTitle": "Desarrollador Full Stack",
- "description": "Desarrollador Full Stack y Analista de Sistemas: arquitectura de software, APIs REST con .NET, Angular y Laravel, bases de datos y análisis de datos con Power BI.",
+ "hasOccupation": {"@type": "Occupation", "name": "Ingeniero de Ejecución en Informática"},
+ "description": "Ingeniero de Ejecución en Informática (e), Desarrollador Full Stack y Analista de Sistemas: arquitectura de software, APIs REST con .NET, Angular y Laravel, bases de datos y análisis de datos con Power BI.",
  "url": "https://faundezz21.github.io/",
  "image": "https://faundezz21.github.io/assets/og-image.png",
  "email": "mailto:cristobalfaundez21@gmail.com",
@@ -152,7 +153,7 @@
 <meta property="og:image:alt" content="Cristóbal Faúndez, Desarrollador Full Stack y Analista de Sistemas">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cristóbal Faúndez · Desarrollador Full Stack">
-<meta name="twitter:description" content="Arquitectura de software, bases de datos, APIs REST, aplicaciones web y análisis de datos.">
+<meta name="twitter:description" content="Ingeniero de Ejecución en Informática (e) y desarrollador full stack: arquitectura de software, bases de datos, APIs REST, aplicaciones web y análisis de datos.">
 <meta name="twitter:image" content="https://faundezz21.github.io/assets/og-image.png">
 <meta name="author" content="Cristóbal Faúndez">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -890,7 +891,7 @@
           <text x="14" y="98">Cristóbal Faúndez</text>
           <path d="M40 134 C 160 118, 320 142, 505 110"/>
         </svg>
-        <p class="role rise d3">Desarrollador Full Stack <b>/</b> Analista de Sistemas</p>
+        <p class="role rise d3">Ingeniero de Ejecución en Informática (e) <b>/</b> Desarrollador Full Stack</p>
         <p class="intro rise d3">Diseño y construyo sistemas completos: arquitectura, base de datos, APIs e interfaz, hasta dejarlos en producción. También transformo datos en reportes útiles con Power BI.</p>
         <div class="actions rise d4">
           <a class="btn primary" href="#proyectos">Ver proyectos</a>
@@ -1325,6 +1326,7 @@
 // traduccion al ingles: diccionario aplicado a textos, atributos y contenido dinamico
 (() => {
   const D = {
+"Ingeniero de Ejecución en Informática (e)": "Computer Engineer (final year)",
 "Proyectos": "Projects",
 "Tecnologías": "Tech stack",
 "Formación": "Education",
@@ -1586,7 +1588,7 @@
   if (lang !== 'en') return;
   document.title = 'Cristóbal Faúndez · Full Stack Developer';
   const md = document.querySelector('meta[name="description"]');
-  if (md) md.content = "Portfolio of Cristóbal Faúndez, full stack developer in Biobío, Chile. Software architecture, databases, REST APIs with .NET, Angular and Laravel, and data analysis with Power BI.";
+  if (md) md.content = "Portfolio of Cristóbal Faúndez, Computer Engineer (final year) and full stack developer in Biobío, Chile. Software architecture, databases, REST APIs with .NET, Angular and Laravel, and data analysis with Power BI.";
   const ATTR = ['placeholder', 'aria-label', 'alt', 'title', 'data-cursor'];
   const tx = n => {
     const v = n.nodeValue, k = v.replace(/\s+/g, ' ').trim();
