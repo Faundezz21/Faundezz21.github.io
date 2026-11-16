@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Página no encontrada · Cristóbal Faúndez</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#09090b">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg: #09090b; --text: #ededf0; --muted: #8d8d98; --faint: #5c5c66; --border: rgba(255,255,255,.08); --border-strong: rgba(255,255,255,.16); --red: #e5243b; }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 400 17px/1.6 "Barlow", system-ui, sans-serif; display: grid; place-items: center; padding: 24px 16px; overflow: hidden; }
+  body::before { content: ""; position: fixed; inset: 0; pointer-events: none; background: radial-gradient(700px circle at 50% 30%, rgba(229,36,59,.14), transparent 60%); }
+  main { position: relative; text-align: center; max-width: 560px; }
+  .code { font: 700 clamp(120px, 30vw, 220px)/.85 "Barlow Condensed", sans-serif; letter-spacing: -.02em; color: transparent; -webkit-text-stroke: 2px rgba(237,237,240,.35); margin: 0; animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+  .code span { color: var(--red); -webkit-text-stroke: 0; display: inline-block; animation: wob 3.2s ease-in-out 1s infinite; }
+  h1 { font: 700 clamp(30px, 6vw, 42px)/1.05 "Barlow Condensed", sans-serif; margin: 18px 0 10px; animation: rise .9s cubic-bezier(.2,.8,.2,1) .1s both; }
+  p { color: var(--muted); margin: 0 auto 28px; max-width: 30em; animation: rise .9s cubic-bezier(.2,.8,.2,1) .2s both; }
+  .actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; animation: rise .9s cubic-bezier(.2,.8,.2,1) .3s both; }
+  a.btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; font: 600 15px "Barlow", sans-serif; color: var(--text); padding: 12px 22px; border-radius: 999px; border: 1px solid var(--border-strong); transition: border-color .2s, background-color .2s, transform .2s; }
+  a.btn:hover { border-color: rgba(255,255,255,.35); transform: translateY(-2px); }
+  a.btn.primary { background: var(--red); border-color: var(--red); color: #fff; }
+  a.btn.primary:hover { background: #ff3249; }
+  a.btn svg { width: 16px; height: 16px; }
+  .en { margin-top: 34px; font-size: 14px; color: var(--faint); animation: rise .9s cubic-bezier(.2,.8,.2,1) .4s both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(24px); } }
+  @keyframes wob { 0%, 100% { transform: rotate(0); } 50% { transform: rotate(-8deg) translateY(-6px); } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+</head>
+<body>
+<main>
+  <p class="code" aria-hidden="true">4<span>0</span>4</p>
+  <h1>Esta página no existe</h1>
+  <p>El enlace puede estar roto o la dirección tener un error. Vuelve al inicio para ver mis proyectos, o escríbeme si buscabas algo en particular.</p>
+  <div class="actions">
+    <a class="btn primary" href="/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5M5 10v10h14V10"/></svg>Volver al inicio</a>
+    <a class="btn" href="/#proyectos">Ver proyectos</a>
+    <a class="btn" href="/#contacto">Contacto</a>
+  </div>
+  <p class="en">Page not found · <a href="/?lang=en" style="color:inherit">Go to the English version</a></p>
+</main>
+</body>
+</html>

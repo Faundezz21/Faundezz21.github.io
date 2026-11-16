@@ -30,22 +30,31 @@
 ## Cómo está hecho
 
 - **Un solo `index.html`, sin frameworks ni dependencias de JavaScript.** HTML, CSS y JavaScript escritos a mano; las únicas peticiones externas son las fuentes de Google Fonts y el envío del formulario.
-- **Imágenes incrustadas:** las capturas de los proyectos (WebP) y los logos (SVG) van dentro del HTML como data URI, así el sitio no depende de rutas relativas y carga igual en cualquier hosting.
+- **Español e inglés:** selector ES / EN en la barra superior. Un diccionario traduce textos, atributos y el contenido que se genera al interactuar (buscador, formulario y juego); el idioma se detecta según el navegador, se puede forzar con `?lang=en` y queda guardado.
+- **Imágenes optimizadas:** capturas en WebP y logos en SVG, con carga diferida para que la página se muestre rápido.
 - **Buscador con `Ctrl + K`:** paleta de comandos para saltar a secciones, proyectos y acciones (copiar correo, descargar CV, jugar).
-- **Interacciones:** fondo topográfico animado en canvas, firma dibujada, animaciones al hacer scroll, cursor contextual en los proyectos, barra de progreso y hora local de Chile en vivo.
+- **Interacciones:** fondo topográfico animado en canvas, firma dibujada, animaciones al hacer scroll, capturas que se revelan y se inclinan en 3D con el mouse, KPIs que cuentan y barras que crecen, cursor contextual en los proyectos, barra de progreso y hora local de Chile en vivo.
 - **Accesibilidad:** HTML semántico, textos alternativos, navegación por teclado, regiones `aria-live` y soporte para `prefers-reduced-motion`.
 - **Responsive:** diseño adaptado desde escritorio hasta celular, con controles táctiles para el juego.
-- **SEO y redes:** metadatos Open Graph y Twitter con imagen de vista previa, URL canónica, favicons en todos los tamaños y manifest web.
+- **SEO y redes:** datos estructurados (JSON-LD `Person`), `sitemap.xml`, `robots.txt`, enlaces `hreflang` para ambos idiomas, metadatos Open Graph y Twitter con imagen de vista previa, URL canónica, favicons y manifest web.
+- **Página 404 propia** con el mismo diseño del sitio.
 - **Formulario de contacto:** validación en el cliente, campo trampa contra spam y envío mediante [FormSubmit](https://formsubmit.co/).
 
 ## Estructura
 
 ```text
 .
-├── index.html          # sitio completo: estructura, estilos, scripts, juego e imágenes de proyectos
+├── index.html          # sitio completo: estructura, estilos, scripts, traducciones y juego
+├── 404.html            # página para enlaces rotos
+├── cv.pdf              # currículum descargable
+├── robots.txt
+├── sitemap.xml
 ├── site.webmanifest    # manifest web (nombre, colores e íconos)
 ├── favicon.ico
-└── assets/             # favicons, íconos de la app e imagen de vista previa para redes
+└── assets/
+    ├── projects/       # capturas de los proyectos (WebP)
+    ├── logos/          # logos de los proyectos (SVG)
+    └── ...             # favicons, íconos de la app e imagen de vista previa para redes
 ```
 
 ## Verlo en local
