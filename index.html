@@ -307,7 +307,8 @@
   /* ---------- extras del menú: hora, buscador y brillo ---------- */
   .nav-links::before { content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .3s; padding: 1px;
     background: radial-gradient(120px circle at var(--mx, 50%) var(--my, 50%), rgba(229,36,59,.55), transparent 70%);
-    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); mask-composite: exclude; }
   .nav-links:hover::before { opacity: 1; }
   .nav-time { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--faint); margin-right: 4px; white-space: nowrap; }
   .nav-time b { color: var(--muted); font-weight: 500; font-variant-numeric: tabular-nums; }
@@ -469,7 +470,7 @@
   .row .tags { margin-top: 16px; }
   .row-icon.blue { box-shadow: 0 12px 30px -10px rgba(0,194,255,.55); }
   .row-icon { width: 56px; height: 56px; border-radius: 14px; margin-bottom: 14px; box-shadow: 0 12px 30px -10px rgba(176,124,255,.55); }
-  .row-side .org a { color: var(--text); text-decoration: none; border-bottom: 1px solid var(--red); }
+  .row-side .org a { color: var(--text); text-decoration: underline 1px var(--red); text-underline-offset: 4px; }
   .feats { list-style: none; margin: 14px 0 0; padding: 0; max-width: 44em; }
   .feats li { position: relative; padding: 5px 0 5px 20px; color: #b9b9c3; font-size: 15px; }
   .feats li::before { content: ""; position: absolute; left: 2px; top: 15px; width: 8px; height: 2px; background: var(--red); }
@@ -527,25 +528,35 @@
   html.js .insight-shot.in .ik > div { opacity: 1; transform: none; }
   html.js .row .tags span { opacity: 0; transform: translateY(8px); transition: opacity .5s, transform .5s cubic-bezier(.2,.8,.2,1); }
   html.js .row.in .tags span { opacity: 1; transform: none; }
-  html.js .insight-shot .ib:nth-child(1) i, html.js .insight-shot .ib:nth-child(1) b { transition-delay: 0.43s; }
-  html.js .row .tags span:nth-child(1) { transition-delay: 0.31s; }
-  html.js .insight-shot .ib:nth-child(2) i, html.js .insight-shot .ib:nth-child(2) b { transition-delay: 0.51s; }
-  html.js .row .tags span:nth-child(2) { transition-delay: 0.37s; }
-  html.js .insight-shot .ib:nth-child(3) i, html.js .insight-shot .ib:nth-child(3) b { transition-delay: 0.59s; }
-  html.js .row .tags span:nth-child(3) { transition-delay: 0.43s; }
-  html.js .insight-shot .ib:nth-child(4) i, html.js .insight-shot .ib:nth-child(4) b { transition-delay: 0.67s; }
-  html.js .row .tags span:nth-child(4) { transition-delay: 0.49s; }
-  html.js .insight-shot .ib:nth-child(5) i, html.js .insight-shot .ib:nth-child(5) b { transition-delay: 0.75s; }
-  html.js .row .tags span:nth-child(5) { transition-delay: 0.55s; }
-  html.js .insight-shot .ib:nth-child(6) i, html.js .insight-shot .ib:nth-child(6) b { transition-delay: 0.83s; }
-  html.js .row .tags span:nth-child(6) { transition-delay: 0.61s; }
-  html.js .insight-shot .ib:nth-child(7) i, html.js .insight-shot .ib:nth-child(7) b { transition-delay: 0.91s; }
-  html.js .row .tags span:nth-child(7) { transition-delay: 0.67s; }
-  html.js .insight-shot .ib:nth-child(8) i, html.js .insight-shot .ib:nth-child(8) b { transition-delay: 0.99s; }
-  html.js .row .tags span:nth-child(8) { transition-delay: 0.73s; }
-  html.js .insight-shot .ik > div:nth-child(1) { transition-delay: 0.25s; }
-  html.js .insight-shot .ik > div:nth-child(2) { transition-delay: 0.35s; }
-  html.js .insight-shot .ik > div:nth-child(3) { transition-delay: 0.45s; }
+  /* retraso escalonado segun la posicion de cada elemento */
+  html.js .insight-shot .ib { --stagger-base: .35s; --stagger-time: .08s; }
+  html.js .row .tags span { --stagger-base: .25s; --stagger-time: .06s; }
+  html.js .insight-shot .ik > div { --stagger-base: .15s; --stagger-time: .1s; }
+  @supports (transition-delay: calc(sibling-index() * 0.1s)) {
+    html.js .insight-shot .ib { transition-delay: calc(var(--stagger-base) + sibling-index() * var(--stagger-time)); }
+    html.js .insight-shot .ib i, html.js .insight-shot .ib b { transition-delay: inherit; }
+    html.js .row .tags span, html.js .insight-shot .ik > div { transition-delay: calc(var(--stagger-base) + sibling-index() * var(--stagger-time)); }
+  }
+  @supports not (transition-delay: calc(sibling-index() * 0.1s)) {
+    html.js .insight-shot .ib:nth-child(1) i, html.js .insight-shot .ib:nth-child(1) b { transition-delay: 0.43s; }
+    html.js .insight-shot .ib:nth-child(2) i, html.js .insight-shot .ib:nth-child(2) b { transition-delay: 0.51s; }
+    html.js .insight-shot .ib:nth-child(3) i, html.js .insight-shot .ib:nth-child(3) b { transition-delay: 0.59s; }
+    html.js .insight-shot .ib:nth-child(4) i, html.js .insight-shot .ib:nth-child(4) b { transition-delay: 0.67s; }
+    html.js .insight-shot .ib:nth-child(5) i, html.js .insight-shot .ib:nth-child(5) b { transition-delay: 0.75s; }
+    html.js .insight-shot .ib:nth-child(6) i, html.js .insight-shot .ib:nth-child(6) b { transition-delay: 0.83s; }
+    html.js .insight-shot .ib:nth-child(7) i, html.js .insight-shot .ib:nth-child(7) b { transition-delay: 0.91s; }
+    html.js .row .tags span:nth-child(1) { transition-delay: 0.31s; }
+    html.js .row .tags span:nth-child(2) { transition-delay: 0.37s; }
+    html.js .row .tags span:nth-child(3) { transition-delay: 0.43s; }
+    html.js .row .tags span:nth-child(4) { transition-delay: 0.49s; }
+    html.js .row .tags span:nth-child(5) { transition-delay: 0.55s; }
+    html.js .row .tags span:nth-child(6) { transition-delay: 0.61s; }
+    html.js .row .tags span:nth-child(7) { transition-delay: 0.67s; }
+    html.js .row .tags span:nth-child(8) { transition-delay: 0.73s; }
+    html.js .insight-shot .ik > div:nth-child(1) { transition-delay: 0.25s; }
+    html.js .insight-shot .ik > div:nth-child(2) { transition-delay: 0.35s; }
+    html.js .insight-shot .ik > div:nth-child(3) { transition-delay: 0.45s; }
+  }
   @media (prefers-reduced-motion: reduce) {
     html.js .shot, html.js .shot img, html.js .win-shot, html.js .insight-shot .ib i, html.js .insight-shot .ib b, html.js .insight-shot .ik > div, html.js .row .tags span { opacity: 1 !important; transform: none !important; clip-path: none !important; transition: none !important; }
     .shot::after { display: none; }
@@ -584,34 +595,8 @@
   .win-bar i:nth-child(3)::after { transform: translate(-50%,-50%) rotate(90deg); }
   .win:hover .win-bar i::before, .win:hover .win-bar i::after, .shot:hover .win-bar i::before, .shot:hover .win-bar i::after { opacity: 1; }
   .win-bar span { margin-left: 10px; font: 500 11px ui-monospace, Menlo, monospace; color: var(--faint); }
-  .win-body { display: grid; grid-template-columns: 44px 1fr; min-height: 280px; }
-  .side { border-right: 1px solid var(--border); padding: 12px 10px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
-  .side b { width: 22px; height: 22px; border-radius: 6px; background: var(--red); margin-bottom: 8px; }
-  .side span { width: 18px; height: 4px; border-radius: 2px; background: #26262e; }
-  .side span.on { background: #6a6a75; }
-  .main { padding: 14px; display: grid; gap: 12px; }
-  .main small { display: block; font-size: 10px; color: var(--faint); margin-bottom: 4px; }
-  .kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-  .kpis div { border: 1px solid var(--border); border-radius: 8px; padding: 9px 10px; background: rgba(255,255,255,.02); }
-  .kpis strong { font: 700 22px/1 "Barlow Condensed", sans-serif; }
-  .kpis .warn { color: #ffb347; }
-  .chart { border: 1px solid var(--border); border-radius: 8px; padding: 10px; }
-  .bars { display: flex; align-items: flex-end; gap: 7px; height: 64px; }
-  .bars i { flex: 1; height: var(--h); border-radius: 3px 3px 0 0; background: #2b2b35; transform-origin: bottom; }
-  .bars i.hi { background: var(--red); }
-  .project.lead.seen .bars i { animation: grow .9s cubic-bezier(.2,.8,.2,1) both; }
-  .bars i:nth-child(2){animation-delay:.05s}.bars i:nth-child(3){animation-delay:.1s}.bars i:nth-child(4){animation-delay:.15s}.bars i:nth-child(5){animation-delay:.2s}.bars i:nth-child(6){animation-delay:.25s}.bars i:nth-child(7){animation-delay:.3s}.bars i:nth-child(8){animation-delay:.35s}
-  @keyframes grow { from { transform: scaleY(0); } }
-  .tbl { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; font-size: 12px; }
-  .tbl > div { display: grid; grid-template-columns: 1.2fr 1fr 1fr; padding: 7px 10px; border-top: 1px solid var(--border); align-items: center; }
-  .tbl > div:first-child { border-top: 0; }
-  .tbl .th { color: var(--faint); font-size: 10px; background: rgba(255,255,255,.02); }
-  .tbl span:first-child { font-family: ui-monospace, Menlo, monospace; font-size: 11px; color: #c9c9d1; }
-  .pill { justify-self: start; font-size: 10px; padding: 2px 8px; border-radius: 999px; }
-  .pill.ok { color: var(--green); background: rgba(62,207,142,.12); }
-  .pill.wa { color: #ffb347; background: rgba(255,179,71,.12); }
   @media (max-width: 960px) { .win { transform: none; } }
-  @media (max-width: 640px) { .win-body { grid-template-columns: 1fr; } .side { display: none; } .kpis strong { font-size: 18px; } .marquee span { font-size: 24px; padding: 0 18px; } .marquee span::after { margin-left: 36px; } }
+  @media (max-width: 640px) { .marquee span { font-size: 24px; padding: 0 18px; } .marquee span::after { margin-left: 36px; } }
 
   /* ---------- juego ---------- */
   .game { overflow: hidden; }
@@ -1724,12 +1709,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
   if (!reduce) requestAnimationFrame(loop);
 })();
 
-/* ===== Vista previa: barras al entrar en pantalla ===== */
-(() => {
-  const el = document.querySelector('.project.lead');
-  if (!el) return;
-  new IntersectionObserver((es, o) => { if (es[0].isIntersecting) { el.classList.add('seen'); o.disconnect(); } }, { threshold: .35 }).observe(el);
-})();
 
 
 /* ===== Formulario de contacto (FormSubmit: envía al correo sin servidor propio) ===== */
@@ -2772,7 +2751,7 @@ document.querySelectorAll('.row[data-href]').forEach(r => {
     const ring = z => Array.from({ length: n }, (_, i) => { const a = i / n * TAU + Math.PI / n; return [cx + Math.cos(a) * r, cy + Math.sin(a) * r, z]; });
     const A = ring(z0), B = ring(z1), out = [];
     for (let i = 0; i < n; i++) { const j = (i + 1) % n; out.push({ pts: [A[i], A[j], B[j], B[i]], col, ...extra }); }
-    out.push({ pts: A.slice().reverse(), col, ...extra }); out.push({ pts: B, col, cap: true, ...extra });
+    out.push({ pts: A.toReversed(), col, ...extra }); out.push({ pts: B, col, cap: true, ...extra });
     return out;
   }
   // y hacia arriba en el modelo; en pantalla y crece hacia abajo
