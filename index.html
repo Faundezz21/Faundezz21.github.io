@@ -18,9 +18,9 @@
 })();
 </script>
 <style>html.i18n-wait body { visibility: hidden; }</style>
-<title>Cristóbal Faúndez · Desarrollador Full Stack</title>
+<title>Cristóbal Faúndez · Desarrollador Full Stack e Ingeniero en Informática | Concepción, Chile</title>
 <meta name="description" content="Portafolio de Cristóbal Faúndez, Ingeniero de Ejecución en Informática (e) y desarrollador full stack en la Región del Biobío, Chile. Arquitectura de software, bases de datos, APIs REST con .NET, Angular y Laravel, y análisis de datos con Power BI.">
-<meta property="og:title" content="Cristóbal Faúndez · Desarrollador Full Stack">
+<meta property="og:title" content="Cristóbal Faúndez · Desarrollador Full Stack e Ingeniero en Informática">
 <meta property="og:description" content="Ingeniero de Ejecución en Informática (e) y desarrollador full stack: arquitectura de software, bases de datos, APIs REST, aplicaciones web y análisis de datos.">
 <meta name="theme-color" content="#09090b">
 <link rel="icon" href="favicon.ico" sizes="48x48">
@@ -29,10 +29,16 @@
 <link rel="icon" href="assets/favicon-16.png" type="image/png" sizes="16x16">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="canonical" href="https://faundezz21.github.io/">
-<link rel="alternate" hreflang="es" href="https://faundezz21.github.io/">
-<link rel="alternate" hreflang="en" href="https://faundezz21.github.io/?lang=en">
-<link rel="alternate" hreflang="x-default" href="https://faundezz21.github.io/">
+<link rel="canonical" href="https://cfdevelopment.cl/">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="me" href="https://github.com/Faundezz21">
+<link rel="me" href="https://www.linkedin.com/in/cristobal-fa%C3%BAndez-704b76323/">
+<link rel="alternate" hreflang="es" href="https://cfdevelopment.cl/">
+<link rel="alternate" hreflang="en" href="https://cfdevelopment.cl/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://cfdevelopment.cl/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Cristóbal Faúndez","alternateName":"CF Development","url":"https://cfdevelopment.cl/","inLanguage":["es-CL","en"]}
+</script>
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -42,8 +48,8 @@
  "jobTitle": "Desarrollador Full Stack",
  "hasOccupation": {"@type": "Occupation", "name": "Ingeniero de Ejecución en Informática"},
  "description": "Ingeniero de Ejecución en Informática (e), Desarrollador Full Stack y Analista de Sistemas: arquitectura de software, APIs REST con .NET, Angular y Laravel, bases de datos y análisis de datos con Power BI.",
- "url": "https://faundezz21.github.io/",
- "image": "https://faundezz21.github.io/assets/og-image.png",
+ "url": "https://cfdevelopment.cl/",
+ "image": "https://cfdevelopment.cl/assets/foto.webp",
  "email": "mailto:cristobalfaundez21@gmail.com",
  "address": {
   "@type": "PostalAddress",
@@ -144,17 +150,17 @@
 }
 </script>
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://faundezz21.github.io/">
+<meta property="og:url" content="https://cfdevelopment.cl/">
 <meta property="og:site_name" content="Cristóbal Faúndez">
 <meta property="og:locale" content="es_CL">
-<meta property="og:image" content="https://faundezz21.github.io/assets/og-image.png">
+<meta property="og:image" content="https://cfdevelopment.cl/assets/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Cristóbal Faúndez, Desarrollador Full Stack y Analista de Sistemas">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cristóbal Faúndez · Desarrollador Full Stack">
+<meta name="twitter:title" content="Cristóbal Faúndez · Desarrollador Full Stack e Ingeniero en Informática">
 <meta name="twitter:description" content="Ingeniero de Ejecución en Informática (e) y desarrollador full stack: arquitectura de software, bases de datos, APIs REST, aplicaciones web y análisis de datos.">
-<meta name="twitter:image" content="https://faundezz21.github.io/assets/og-image.png">
+<meta name="twitter:image" content="https://cfdevelopment.cl/assets/og-image.png">
 <meta name="author" content="Cristóbal Faúndez">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -440,6 +446,17 @@
   .facts { grid-column: 1 / -1; margin: 64px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top: 1px solid var(--border-strong); }
   .facts div { padding: 18px 24px 0 0; }
   .facts div + div { padding-left: 24px; border-left: 1px solid var(--border); }
+  .hero .wrap { grid-template-columns: 1fr auto; gap: 56px; align-items: center; }
+  .hero-photo { position: relative; margin: 0; width: 300px; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; border: 1px solid var(--border-strong); background: #111115;
+    box-shadow: 0 30px 80px -30px rgba(229,36,59,.45), 0 0 0 6px rgba(255,255,255,.02); }
+  .hero-photo::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, rgba(9,9,11,.35), transparent 40%); }
+  .hero-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; }
+  @media (max-width: 960px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .hero-photo { order: -1; width: 104px; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 0 4px rgba(229,36,59,.25), 0 18px 40px -20px rgba(229,36,59,.6); }
+    .hero-photo::after { display: none; }
+    .hero-photo img { object-position: 50% 0; transform: scale(1.9); transform-origin: 50% 12%; }
+  }
   .facts dt { font-size: 13px; color: var(--faint); margin-bottom: 4px; }
   .facts dd { margin: 0; font-size: 16px; color: var(--text); }
   .edu-list { border-bottom: 1px solid var(--border); }
@@ -906,10 +923,14 @@
       </div>
 
 
+      <figure class="hero-photo rise d3">
+        <img src="assets/foto.webp" alt="Cristóbal Faúndez con su título de la UCSC" width="490" height="612" fetchpriority="high" decoding="async">
+      </figure>
+
       <dl class="facts rise d4">
         <div><dt>Ubicación</dt><dd>Concepción y Cabrero, Biobío</dd></div>
         <div><dt>Título</dt><dd>Analista de Sistemas, UCSC</dd></div>
-        <div><dt>Estudios</dt><dd>Ingeniería en Informática, 4° año</dd></div>
+        <div><dt>Carrera</dt><dd>Ingeniería de Ejecución en Informática · último año</dd></div>
         <div><dt>Certificaciones</dt><dd>8 de Google: datos, BI, PM e IT</dd></div>
       </dl>
     </div>
@@ -1128,7 +1149,7 @@
         <p>UCSC, enseñanza media técnica en telecomunicaciones y certificaciones profesionales de Google.</p>
       </div>
       <div class="edu-list">
-        <div class="edu-row"><span class="yr">En curso · 4° año</span><div><h3>Ingeniería de Ejecución en Informática</h3><p>Universidad Católica de la Santísima Concepción</p></div></div>
+        <div class="edu-row"><span class="yr">En curso · último año</span><div><h3>Ingeniería de Ejecución en Informática</h3><p>Universidad Católica de la Santísima Concepción</p></div></div>
         <div class="edu-row"><span class="yr ok">Titulado</span><div><h3>Técnico Universitario Analista de Sistemas y Programador de Dispositivos Informáticos</h3><p>Universidad Católica de la Santísima Concepción</p></div></div>
         <div class="edu-row"><span class="yr ok">Titulado · 2018 – 2020</span><div><h3>Técnico de Nivel Medio en Telecomunicaciones</h3><p>Colegio Tecnológico Darío Salas · Telecomunicaciones y antenas · Nota 6,7</p></div></div>
         <div class="edu-row"><span class="yr">Certificado profesional · Google</span><div><h3>Google Data Analytics</h3><p>SQL, R, Tableau, hojas de cálculo y visualización de datos · Coursera, 2026</p></div></div>
@@ -1326,6 +1347,10 @@
 // traduccion al ingles: diccionario aplicado a textos, atributos y contenido dinamico
 (() => {
   const D = {
+"Carrera": "Program",
+"Ingeniería de Ejecución en Informática · último año": "Computer Engineering · final year",
+"En curso · último año": "In progress · final year",
+"Cristóbal Faúndez con su título de la UCSC": "Cristóbal Faúndez holding his UCSC diploma",
 "Ingeniero de Ejecución en Informática (e)": "Computer Engineer (final year)",
 "Proyectos": "Projects",
 "Tecnologías": "Tech stack",
@@ -1586,7 +1611,7 @@
     });
   }
   if (lang !== 'en') return;
-  document.title = 'Cristóbal Faúndez · Full Stack Developer';
+  document.title = 'Cristóbal Faúndez · Full Stack Developer & Computer Engineer | Chile';
   const md = document.querySelector('meta[name="description"]');
   if (md) md.content = "Portfolio of Cristóbal Faúndez, Computer Engineer (final year) and full stack developer in Biobío, Chile. Software architecture, databases, REST APIs with .NET, Angular and Laravel, and data analysis with Power BI.";
   const ATTR = ['placeholder', 'aria-label', 'alt', 'title', 'data-cursor'];

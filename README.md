@@ -1,17 +1,17 @@
 <h1 align="center">Portafolio · Cristóbal Faúndez</h1>
 
 <p align="center">
-  <a href="https://faundezz21.github.io/"><strong>faundezz21.github.io</strong></a>
+  <a href="https://cfdevelopment.cl/"><strong>cfdevelopment.cl</strong></a>
   <br>
   Desarrollador Full Stack · Analista de Sistemas · Región del Biobío, Chile
 </p>
 
 <p align="center">
-  <a href="https://faundezz21.github.io/"><img src="assets/og-image.png" alt="Vista previa del portafolio de Cristóbal Faúndez" width="100%" /></a>
+  <a href="https://cfdevelopment.cl/"><img src="assets/og-image.png" alt="Vista previa del portafolio de Cristóbal Faúndez" width="100%" /></a>
 </p>
 
 <p align="center">
-  <a href="https://faundezz21.github.io/"><img src="https://img.shields.io/badge/Ver_sitio-faundezz21.github.io-E5243B?style=for-the-badge&logo=githubpages&logoColor=white" alt="Ver sitio" /></a>
+  <a href="https://cfdevelopment.cl/"><img src="https://img.shields.io/badge/Ver_sitio-cfdevelopment.cl-E5243B?style=for-the-badge&logo=githubpages&logoColor=white" alt="Ver sitio" /></a>
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5" />
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
@@ -45,6 +45,7 @@
 ```text
 .
 ├── index.html          # sitio completo: estructura, estilos, scripts, traducciones y juego
+├── .htaccess           # configuración de apache en hostgator
 ├── 404.html            # página para enlaces rotos
 ├── cv.pdf              # currículum descargable
 ├── robots.txt
@@ -69,11 +70,16 @@ Y luego abrir `http://localhost:8080`.
 
 ## Publicación
 
-El sitio se publica automáticamente con **GitHub Pages** desde la rama `main`: cada `git push` actualiza [faundezz21.github.io](https://faundezz21.github.io/) en uno o dos minutos.
+Cada `git push` a la rama `main` publica el sitio en dos lugares:
+
+- **[cfdevelopment.cl](https://cfdevelopment.cl/)** (dominio principal, en HostGator), mediante un workflow de GitHub Actions que sube por FTPS solo los archivos que cambiaron.
+- **[faundezz21.github.io](https://faundezz21.github.io/)** con GitHub Pages, como respaldo. Su URL canónica apunta al dominio principal para no duplicar el SEO.
+
+El archivo `.htaccess` configura el servidor Apache: HTTPS obligatorio, redirección de `www`, página 404, compresión, caché y cabeceras de seguridad.
 
 ## Contacto
 
-- **Portafolio:** [faundezz21.github.io](https://faundezz21.github.io/)
+- **Portafolio:** [cfdevelopment.cl](https://cfdevelopment.cl/)
 - **GitHub:** [Faundezz21](https://github.com/Faundezz21)
 - **LinkedIn:** [cristobal-faúndez](https://www.linkedin.com/in/cristobal-fa%C3%BAndez-704b76323/)
 - **Correo:** [cristobalfaundez21@gmail.com](mailto:cristobalfaundez21@gmail.com)

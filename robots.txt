@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://faundezz21.github.io/sitemap.xml
+Sitemap: https://cfdevelopment.cl/sitemap.xml

@@ -1,0 +1,39 @@
+name: publicar en hostgator
+
+on:
+  # se ejecuta con cada cambio en la rama principal
+  push:
+    branches: [main]
+  # permite ejecutarlo a mano desde la pestana actions
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # descarga los archivos del sitio
+      - uses: actions/checkout@v4
+
+      # revisa si ya se configuraron las credenciales ftp
+      - name: revisar credenciales
+        id: creds
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: |
+          if [ -n "$FTP_SERVER" ]; then echo "ok=true" >> "$GITHUB_OUTPUT"; else echo "faltan los secretos ftp, se omite la publicacion"; fi
+
+      # sube solo los archivos que cambiaron, sin borrar nada del servidor
+      - name: subir a hostgator
+        if: steps.creds.outputs.ok == 'true'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ${{ vars.FTP_PROTOCOL || 'ftps' }}
+          server-dir: ${{ vars.FTP_SERVER_DIR || 'public_html/' }}
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .github/**
+            README.md
