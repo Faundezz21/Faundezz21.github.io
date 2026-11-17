@@ -12,7 +12,14 @@
     const q = new URLSearchParams(location.search).get('lang');
     if (q === 'en' || q === 'es') { l = q; localStorage.setItem('lang', q); } else l = localStorage.getItem('lang');
   } catch (e) {}
-  if (l !== 'en' && l !== 'es') l = (/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent) || /^es\b/i.test(navigator.language || 'es')) ? 'es' : 'en';
+  if (l !== 'en' && l !== 'es') {
+    // espanol si algun idioma del navegador es espanol o la zona horaria es de un pais hispanohablante
+    const langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'es'];
+    let tz = '';
+    try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ''; } catch (e) {}
+    const hisp = /^(America\/(Santiago|Punta_Arenas|Argentina\/.+|Buenos_Aires|Bogota|Lima|Mexico_City|Monterrey|Merida|Cancun|Chihuahua|Hermosillo|Mazatlan|Tijuana|Caracas|La_Paz|Asuncion|Montevideo|Guayaquil|Panama|Costa_Rica|Guatemala|El_Salvador|Tegucigalpa|Managua|Santo_Domingo|Havana|Puerto_Rico)|Europe\/Madrid|Atlantic\/Canary|Africa\/Ceuta|Pacific\/Easter)$/;
+    l = (/bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent) || langs.some(x => /^es\b/i.test(x)) || hisp.test(tz)) ? 'es' : 'en';
+  }
   window.__lang = l; h.lang = l;
   if (l === 'en') { h.classList.add('i18n-wait'); setTimeout(() => h.classList.remove('i18n-wait'), 1500); }
 })();
